@@ -10,7 +10,7 @@ on:
       digest:
         description: "The OCI image digest. The image digest of the form '<algorithm>:<digest>' (e.g. 'sha256:abcdef...')"
         type: string
-        default: "sha256:51c374c1af56022fdc75aec399d9694e1559338544d78b788a515bdd7278ebf5"
+        default: "sha256:7e0c03e174f7f64ab5c4a1ce9cabd3e01d017d73a802597ad2b4da8f846e6a58"
       policy-id:
         description: "Policy ID for the service account we want to deploy on."
         type: string
