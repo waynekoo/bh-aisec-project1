@@ -34,13 +34,13 @@ jobs:
       id-token: write # for creating OIDC tokens for signing.
       packages: write # for uploading attestations.
       contents: read # To read the repo.
-    uses: slsa-framework/oss-na24-slsa-workshop-organization/.github/workflows/image-publisher.yml@main
+    uses: lmrs2/bh-aisec-organization/.github/workflows/image-publisher.yml@main
     with:
       environment: ${{ inputs.environment }}
       image: ${{ inputs.image }}
       digest: ${{ inputs.digest }}
       # Use name rather than env variable because env are not available for reusable workflows.
-      registry-username: laurentsimon
+      registry-username: lmrs2
       #registry-username: ${{ github.actor }}
     secrets:
       registry-password: ${{ secrets.REGISTRY_PASSWORD }}
