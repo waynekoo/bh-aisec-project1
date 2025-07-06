@@ -1,5 +1,5 @@
 # Use an official Python runtime as a parent image
-FROM python:3.10-slim-buster
+FROM python:3.9-slim-buster
 
 # Set the working directory in the container
 WORKDIR /app
@@ -8,14 +8,12 @@ WORKDIR /app
 # Assuming requirements.txt is located at install/requirements.txt in your host machine
 COPY install/requirements.txt /app/install/requirements.txt
 
-RUN pip install --upgrade pip
-
 # Install any needed packages specified in requirements.txt
-RUN pip install --require-hashes --no-cache-dir -r /app/install/requirements.txt
+RUN pip install --no-cache-dir -r /app/install/requirements.txt
 
 # Copy the entire application code into the container at /app
 # Assuming your Flask app file is named app.py and is in the root of your project
-COPY app.py /app
+COPY . /app
 
 # Expose the port that the Flask app will run on
 EXPOSE 5000
