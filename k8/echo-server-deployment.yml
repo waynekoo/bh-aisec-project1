@@ -19,6 +19,19 @@ spec:
     spec:
       containers:
       - name: echo-server
-        image: docker.io/lmrs2/bh-aisec-project1-echo-server@sha256:7e0c03e174f7f64ab5c4a1ce9cabd3e01d017d73a802597ad2b4da8f846e6a58
+        image: docker.io/lmrs2/bh-aisec-project1-echo-server@sha256:ce2f543c322c5b77f31bf2715dc7b54bcf1497e32e0223be7901048940005dc6
         ports:
         - containerPort: 8081
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: echo-server-service
+spec:
+  selector:
+    app: echo-server
+  ports:
+    - protocol: TCP
+      port: 8081
+      targetPort: 8081
+  type: NodePort # Exposes the service on a port on each node's IP

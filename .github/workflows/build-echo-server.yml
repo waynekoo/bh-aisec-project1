@@ -51,7 +51,7 @@ jobs:
         id: build
         with:
           push: true
-          context: "{{defaultContext}}:images/echo-server"
+          context: "images/echo-server"
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
