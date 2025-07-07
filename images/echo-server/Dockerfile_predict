@@ -18,7 +18,7 @@ RUN pip install --require-hashes --no-cache-dir -r /app/install/requirements.txt
 COPY app_predict.py /app
 
 # Expose the port that the Flask app will run on
-EXPOSE 5000
+EXPOSE 8081
 
 # Define environment variable for Flask
 ENV FLASK_APP=app_predict.py
