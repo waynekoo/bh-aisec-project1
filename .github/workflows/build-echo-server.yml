@@ -52,6 +52,7 @@ jobs:
         with:
           push: true
           context: "images/echo-server"
+          file: "images/echo-server/Dockerfile_predict"
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
