@@ -13,3 +13,17 @@ $ docker build -t my-rest-server .
 $ docker run -p 8081:8081 my-rest-server
 $ curl -s -X POST -H "Content-Type: application/json"      -d '{"image": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="}'      http://localhost:8081/classify/v0 | jq
 ```
+
+### Build requirements.txt for classifier
+
+```shell
+$ docker build -t requirements -f Dockerfile_requirements .
+```
+
+### Build classifier
+
+```shell
+$ docker build -t my-rest-server .
+$ docker run -p 8081:8081 my-rest-server
+$ curl -s -X POST -H "Content-Type: application/json"      -d '{"image": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="}'      http://localhost:8081/classify/v0 | jq
+```
