@@ -11,7 +11,8 @@ COPY install/requirements_predict.txt /app/install/requirements.txt
 RUN pip install --upgrade pip
 
 # Install any needed packages specified in requirements.txt
-RUN pip install --require-hashes --no-cache-dir -r /app/install/requirements_predict.txt
+# TODO --require-hashes
+RUN pip install --no-cache-dir --resume-retries 3 -r /app/install/requirements.txt
 
 # Copy the entire application code into the container at /app
 # Assuming your Flask app file is named app.py and is in the root of your project
