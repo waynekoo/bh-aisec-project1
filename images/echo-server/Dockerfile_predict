@@ -6,7 +6,7 @@ WORKDIR /app
 
 # Copy the requirements file into the container at /app/install/
 # Assuming requirements.txt is located at install/requirements.txt in your host machine
-COPY install/requirements.txt /app/install/requirements.txt
+COPY install/requirements_predict.txt /app/install/requirements.txt
 
 RUN pip install --upgrade pip
 

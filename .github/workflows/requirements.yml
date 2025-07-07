@@ -1,4 +1,4 @@
-name: Generate requirements
+name: Requirements generation
 
 on:
   workflow_dispatch:
