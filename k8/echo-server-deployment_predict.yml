@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: echo-server-deployment
+  labels:
+    app: echo-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: echo-server
+  template:
+    metadata:
+      labels:
+        app: echo-server
+      annotations:
+        # WARNING: This simulates the service account being exposed via an annotation.
+        cloud.google.com/service_account: "name@prod-project-id.iam.gserviceaccount.com"
+    spec:
+      volumes:
+      - name: my-data-volume
+        hostPath:
+          path: /mnt/local_data # This MUST match the path in your minikube mount command
+          type: DirectoryOrCreate
+      containers:
+      - name: echo-server
+        image: docker.io/lmrs2/bh-aisec-project1-echo-server@sha256:6a105421b8ac14f3078f55d1dbf566ee1b261506e3f41920bfc638204645330f
+        ports:
+        - containerPort: 8081
+        volumeMounts:
+        - name: my-data-volume
+          mountPath: /mnt/model # This is where it appears INSIDE your container
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: echo-server-service
+spec:
+  selector:
+    app: echo-server
+  ports:
+    - protocol: TCP
+      port: 8081
+      targetPort: 8081
+  type: NodePort # Exposes the service on a port on each node's IP
