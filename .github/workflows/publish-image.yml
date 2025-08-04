@@ -34,7 +34,7 @@ jobs:
       id-token: write # for creating OIDC tokens for signing.
       packages: write # for uploading attestations.
       contents: read # To read the repo.
-    uses: lmrs2/bh-aisec-organization/.github/workflows/image-publisher.yml@main
+    uses: waynekoo/bh-aisec-organization/.github/workflows/image-publisher.yml@main
     with:
       environment: ${{ inputs.environment }}
       image: ${{ inputs.image }}
